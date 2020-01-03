@@ -1,0 +1,106 @@
+body {
+  background-image: url(../image/background.jpg);
+  color: #b9b9b9;
+  background-size: cover;
+}
+
+.site__header {
+  z-index: 1;
+  background-color: #333333;
+  position: fixed;
+  left: 0px;
+  width: 100%;
+  height: 80px;
+}
+.site__header-content {
+  display: flex;
+  justify-content: space-between;
+}
+.site__header-content--title {
+  line-height: 60px;
+  font-size: 20px;
+  font-weight: 500;
+}
+.site__header-content .navbar-collapse {
+  flex-grow: 0;
+}
+.site__header-content .navbar-collapse .navbar-nav {
+  width: max-content;
+  padding: 0 20px;
+  background-color: #333333;
+}
+.site__header-content .navbar-collapse .navbar-nav .nav-item {
+  width: fit-content;
+}
+
+.site__home {
+  padding-top: 80px;
+}
+.site__home .home__header {
+  padding: 50px;
+}
+.site__home .home__header .photo {
+  text-align: center;
+}
+.site__home .home__header .photo img {
+  width: 100%;
+  max-width: 256px;
+}
+.site__home .home__header .title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.site__home .home__header .title-container .title-block {
+  margin: 20px;
+}
+.site__home .home__content {
+  padding: 50px;
+  padding-bottom: 0px;
+}
+
+.site__resume {
+  padding: 80px 50px 0px 50px;
+}
+.site__resume .block {
+  padding-bottom: 20px;
+}
+.site__resume .block .block-title {
+  padding-bottom: 10px;
+}
+.site__resume .block .skills-info {
+  padding-left: 20px;
+}
+.site__resume .block .skills-info li {
+  list-style-type: none;
+}
+.site__resume .block .timeline {
+  padding-left: 20px;
+}
+
+.site__contact {
+  padding: 50px;
+  padding-top: 80px;
+}
+.site__contact div {
+  margin: auto;
+  margin-right: 0px;
+}
+.site__contact div .info {
+  margin: auto;
+  margin-right: 0px;
+  text-align: right;
+}
+.site__contact div .info td {
+  padding-left: 10px;
+}
+
+footer {
+  text-align: center;
+}
+footer .copyrights {
+  margin-bottom: 10px;
+}
+
+/*# sourceMappingURL=style.css.map */

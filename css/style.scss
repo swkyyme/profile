@@ -1,0 +1,111 @@
+@import './theme';
+$header-height:80px;
+$block-padding:50px;
+
+body {
+    background-image: url(../image/background.jpg);
+    color:$font-color;
+    background-size: cover;
+}
+.site__header {
+    z-index: 1;
+    background-color:#333333;
+    position: fixed;
+    left: 0px;
+    width: 100%;
+    height: $header-height;
+    // padding: 0 $block-padding;
+
+    &-content {
+        display: flex;
+        justify-content: space-between;
+    
+        &--title {
+            // display: inline-block;
+            line-height: 60px;
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .navbar-collapse {
+            flex-grow: 0;
+            .navbar-nav {
+                width: max-content;
+                padding: 0 20px;
+                background-color: #333333;
+                .nav-item {
+                    width: fit-content;
+                }
+            }
+        }
+    }
+}
+
+.site__home {
+    padding-top: $header-height;
+    .home__header {
+        padding: $block-padding;
+        .photo {
+            text-align: center;
+            img {
+                width: 100%;
+                max-width: 256px;
+            }
+        }
+        .title-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            .title-block {
+                margin: 20px;
+            }
+        }
+    }
+    .home__content {
+        padding: $block-padding;
+        padding-bottom: 0px;
+    } 
+
+}
+.site__resume {
+    padding: $header-height $block-padding 0px $block-padding;
+    .block {
+        padding-bottom: 20px;
+        .block-title {
+            padding-bottom: 10px;
+        }
+        .skills-info {
+            padding-left: 20px;
+            li {
+                list-style-type: none;
+            }
+        }
+        .timeline {
+            padding-left: 20px;
+        }
+    }
+}
+.site__contact {
+    padding: $block-padding;
+    padding-top: $header-height;
+    div {
+        margin: auto;
+        margin-right: 0px;
+        .info {
+            margin: auto;
+            margin-right: 0px;
+            text-align: right;
+            td {
+                padding-left: 10px;
+            }
+        }
+    }
+
+}
+
+footer {
+    text-align: center;
+    .copyrights {
+        margin-bottom: 10px;
+    }
+}
