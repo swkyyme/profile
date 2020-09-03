@@ -1,5 +1,5 @@
-$(document).ready(function () {
-	$(document).on("click", "a#home_link", function (e) {
+$(document).ready(() => {
+	$(document).on("click", "a#home_link", (e) => {
 		e.preventDefault();
 		$("html,body").animate(
 			{
@@ -8,7 +8,7 @@ $(document).ready(function () {
 			800
 		);
 	});
-	$(document).on("click", "a#skills_link", function (e) {
+	$(document).on("click", "a#skills_link", (e) => {
 		e.preventDefault();
 		$("html,body").animate(
 			{
@@ -17,7 +17,7 @@ $(document).ready(function () {
 			800
 		);
 	});
-	$(document).on("click", "a#works_link", function (e) {
+	$(document).on("click", "a#works_link", (e) => {
 		e.preventDefault();
 		$("html,body").animate(
 			{
@@ -26,7 +26,7 @@ $(document).ready(function () {
 			800
 		);
 	});
-	$(document).on("click", "a#games_link", function (e) {
+	$(document).on("click", "a#games_link", (e) => {
 		e.preventDefault();
 		$("html,body").animate(
 			{
@@ -35,7 +35,7 @@ $(document).ready(function () {
 			800
 		);
 	});
-	$(document).on("click", "a#contact_link", function (e) {
+	$(document).on("click", "a#contact_link", (e) => {
 		e.preventDefault();
 		$("html,body").animate(
 			{

@@ -3,51 +3,64 @@ const ctx = canvas.getContext("2d");
 const home = document.getElementById("home");
 const homeStyle = getComputedStyle(home);
 
-const width = parseInt(homeStyle.getPropertyValue("width"), 10);
-const height = parseInt(homeStyle.getPropertyValue("height"), 10);
+let width;
+let height;
+
+const setSize = () => {
+	width = parseInt(homeStyle.getPropertyValue("width"), 10);
+	height = parseInt(homeStyle.getPropertyValue("height"), 10);
+};
+
+setSize();
+
+window.addEventListener("resize", () => {
+	setSize();
+});
 
 canvas.width = width;
 canvas.height = height;
 
+const breadkpoint = 768;
+
 /************* image ******************/
 let bgReady = false;
 const bgImage = new Image();
-bgImage.onload = function () {
+bgImage.onload = () => {
 	bgReady = true;
 };
 bgImage.src = "image/boat.jpg";
 
 let wymReady = false;
 const wymImage = new Image();
-wymImage.onload = function () {
+wymImage.onload = () => {
 	wymReady = true;
 };
 wymImage.src = "image/wym.png";
 
 let playerReady = false;
 const playerImage = new Image();
-playerImage.onload = function () {
+playerImage.onload = () => {
 	playerReady = true;
 };
 playerImage.src = "image/brush.png";
 
 let inkReady = false;
 const inkImage = new Image();
-inkImage.onload = function () {
+inkImage.onload = () => {
 	inkReady = true;
 };
 inkImage.src = "image/ink.png";
 
 let keyboardReady = false;
 const keyboardImage = new Image();
-keyboardImage.onload = function () {
+keyboardImage.onload = () => {
 	keyboardReady = true;
 };
 keyboardImage.src = "image/keyboard.png";
 
 let heroReady = false;
 const heroImage = new Image();
-heroImage.onload = function () {
+heroImage.onload = () => {
 	heroReady = true;
 };
 heroImage.src = "image/hero.png";
@@ -59,6 +72,7 @@ let player = {
 let ink = {};
 let progressBar = 20;
 let inkNumber = 0;
+
 /************** bind keys **************/
 let keysDown = {};
 addEventListener(
@@ -80,26 +94,26 @@ addEventListener(
 );
 
 /************** reset **************/
-const reset = function () {
+const reset = () => {
 	ink.x = width / 4 + Math.random() * (width / 2);
 	ink.y = height / 4 + Math.random() * (height / 2 - 100);
 };
 
-const update = function (modifier) {
+const update = (modifier) => {
 	if (38 in keysDown) {
-		// Player holding up
+		// Up
 		player.y -= player.speed * modifier;
 	}
 	if (40 in keysDown) {
-		// Player holding down
+		// Down
 		player.y += player.speed * modifier;
 	}
 	if (37 in keysDown) {
-		// Player holding left
+		// Left
 		player.x -= player.speed * modifier;
 	}
 	if (39 in keysDown) {
-		// Player holding right
+		// Right
 		player.x += player.speed * modifier;
 	}
 
@@ -115,7 +129,7 @@ const update = function (modifier) {
 		progressBar += 20;
 	}
 
-	//touch border
+	//Touch border
 	if (player.x > width) {
 		player.x = 0;
 	}
@@ -131,10 +145,14 @@ const update = function (modifier) {
 };
 
 // Draw everything
-const render = function () {
+const render = () => {
 	if (bgReady) {
 		ctx.drawImage(bgImage, 0, 0, width, height);
-		ctx.font = "900 80px cursive";
+		if (width < breadkpoint) {
+			ctx.font = "500 60px cursive";
+		} else {
+			ctx.font = "900 80px cursive";
+		}
 		ctx.textAlign = "center";
 		ctx.fillStyle = "rgba(5, 5, 5, 0.7)";
 		ctx.fillText("YIMENG WANG", width / 2, height / 2 + 40);
@@ -142,16 +160,26 @@ const render = function () {
 
 	if (wymReady) {
 		ctx.globalAlpha = 0.8;
-		ctx.drawImage(
-			wymImage,
-			width / 4,
-			height / 4,
-			400,
-			(400 * wymImage.height) / wymImage.width
-		);
+		if (width < breadkpoint) {
+			ctx.drawImage(
+				wymImage,
+				width / 2 - 200,
+				height / 2 - 200,
+				400,
+				(400 * wymImage.height) / wymImage.width
+			);
+		} else {
+			ctx.drawImage(
+				wymImage,
+				width / 4,
+				height / 4,
+				400,
+				(400 * wymImage.height) / wymImage.width
+			);
+		}
 	}
 
-	if (playerReady) {
+	if (width >= breadkpoint && playerReady) {
 		ctx.drawImage(
 			playerImage,
 			player.x,
@@ -161,11 +189,11 @@ const render = function () {
 		);
 	}
 
-	if (inkReady) {
+	if (width >= breadkpoint && inkReady) {
 		ctx.drawImage(inkImage, ink.x, ink.y, 70, 70);
 	}
 
-	if (keyboardReady) {
+	if (width >= breadkpoint && keyboardReady) {
 		ctx.drawImage(keyboardImage, 50, height - 150, 100, 100);
 	}
 
@@ -187,18 +215,20 @@ const render = function () {
 		});
 	}
 
-	ctx.fillStyle = "rgb(9, 9, 9)";
-	ctx.font = "24px cursive";
-	ctx.textAlign = "left";
-	ctx.textBaseline = "bottom";
-	ctx.fillText("Move your brush to touch the ink ", 170, height - 70);
+	if (width >= breadkpoint) {
+		ctx.fillStyle = "rgb(9, 9, 9)";
+		ctx.font = "24px cursive";
+		ctx.textAlign = "left";
+		ctx.textBaseline = "bottom";
+		ctx.fillText("Move to touch the ink ", 170, height - 70);
 
-	ctx.fillText(inkNumber, 50, height - 26);
-	ctx.fillRect(80, height - 50, progressBar, 20);
+		ctx.fillText(inkNumber, 50, height - 26);
+		ctx.fillRect(80, height - 50, progressBar, 20);
+	}
 };
 
 // The main game loop
-const main = function () {
+const main = () => {
 	const now = Date.now();
 	const delta = now - then;
 	update(delta / 1000);
@@ -208,7 +238,7 @@ const main = function () {
 	requestAnimationFrame(main);
 };
 
-// Let's play this game!
+// Play the game!
 let then = Date.now();
 player.x = canvas.width / 2;
 player.y = canvas.height / 2;

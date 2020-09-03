@@ -1,5 +1,6 @@
 @import "./theme";
 $header-height: 100px;
+$breakpoint: 768px;
 
 body {
 	color: $font-color;
@@ -186,11 +187,41 @@ body {
 			}
 		}
 	}
+	@media (max-width: $breakpoint) {
+		.stage {
+			img {
+				width: 150px;
+			}
+			.cube {
+				span {
+					font-size: 16px;
+					height: 150px;
+					line-height: 150px;
+					width: 150px;
+				}
+				#back {
+					transform: rotateY(180deg) translateZ(150px);
+				}
+				#left {
+					transform: rotateY(-90deg) translateZ(150px);
+				}
+				#right {
+					transform: rotateY(90deg) translateZ(150px);
+				}
+				#front {
+					transform: translateZ(150px);
+				}
+			}
+		}
+	}
 }
 .skills {
 	&__content {
 		position: relative;
 		padding: 100px;
+		@media (max-width: $breakpoint) {
+			padding: 50px;
+		}
 		&::before {
 			content: "";
 			background-image: url(../image/paper.png);
@@ -213,9 +244,15 @@ body {
 				text-align: right;
 				width: 200px;
 				vertical-align: middle;
+				@media (max-width: $breakpoint) {
+					display: none;
+				}
 			}
 			td {
 				font-size: 20px;
+				@media (max-width: $breakpoint) {
+					font-size: 18px;
+				}
 			}
 		}
 	}
@@ -230,6 +267,9 @@ body {
 			img {
 				width: 60px;
 				padding-right: 20px;
+			}
+			@media (max-width: $breakpoint) {
+				font-size: 16px;
 			}
 		}
 		.linkedin img {
@@ -275,6 +315,9 @@ body {
 			& img {
 				width: 100%;
 			}
+		}
+		@media (max-width: $breakpoint) {
+			width: 400px;
 		}
 	}
 }

@@ -172,10 +172,38 @@ body {
   background-color: #555;
   transform: translateZ(300px);
 }
+@media (max-width: 768px) {
+  .games .stage img {
+    width: 150px;
+  }
+  .games .stage .cube span {
+    font-size: 16px;
+    height: 150px;
+    line-height: 150px;
+    width: 150px;
+  }
+  .games .stage .cube #back {
+    transform: rotateY(180deg) translateZ(150px);
+  }
+  .games .stage .cube #left {
+    transform: rotateY(-90deg) translateZ(150px);
+  }
+  .games .stage .cube #right {
+    transform: rotateY(90deg) translateZ(150px);
+  }
+  .games .stage .cube #front {
+    transform: translateZ(150px);
+  }
+}
 
 .skills__content {
   position: relative;
   padding: 100px;
+}
+@media (max-width: 768px) {
+  .skills__content {
+    padding: 50px;
+  }
 }
 .skills__content::before {
   content: "";
@@ -201,8 +229,18 @@ body {
   width: 200px;
   vertical-align: middle;
 }
+@media (max-width: 768px) {
+  .skills__content .skills__info th {
+    display: none;
+  }
+}
 .skills__content .skills__info td {
   font-size: 20px;
+}
+@media (max-width: 768px) {
+  .skills__content .skills__info td {
+    font-size: 18px;
+  }
 }
 
 .contact__content {
@@ -217,6 +255,12 @@ body {
 .contact__content .linkedin img {
   width: 60px;
   padding-right: 20px;
+}
+@media (max-width: 768px) {
+  .contact__content .email,
+.contact__content .linkedin {
+    font-size: 16px;
+  }
 }
 .contact__content .linkedin img {
   padding-left: 5px;
@@ -259,6 +303,11 @@ body {
 }
 .overlay .popup .content img {
   width: 100%;
+}
+@media (max-width: 768px) {
+  .overlay .popup {
+    width: 400px;
+  }
 }
 
 footer {

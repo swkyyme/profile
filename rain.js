@@ -25,7 +25,7 @@ for (let b = 0; b < maxParts; b++) {
 	particles[b] = init[b];
 }
 
-function draw() {
+const draw = () => {
 	ctxRain.clearRect(0, 0, width, height);
 	for (let c = 0; c < particles.length; c++) {
 		let p = particles[c];
@@ -35,9 +35,9 @@ function draw() {
 		ctxRain.stroke();
 	}
 	move();
-}
+};
 
-function move() {
+const move = () => {
 	for (let b = 0; b < particles.length; b++) {
 		let p = particles[b];
 		p.x += p.xs;
@@ -47,6 +47,6 @@ function move() {
 			p.y = -20;
 		}
 	}
-}
+};
 
 setInterval(draw, 50);
