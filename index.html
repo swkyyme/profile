@@ -1,159 +1,285 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="image/signature-logo.png" />
     <title>Yimeng Wang</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <script src="./function.js"></script>
+    <script defer src="./function.js"></script>
+    <script defer src="./helper.js"></script>
+    <script defer src="./canvas.js"></script>
+    <script defer src="./rain.js"></script>
 </head>
+
 <body>
-    <header class="site__header">
-        <div class="container-lg">
-
-            <nav class="navbar navbar-expand-lg navbar-dark site__header-content">
-                <a class="navbar-brand site__header-content--title" href="#">Yimeng Wang</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link active" id="home_link" href="#">HOME <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" id="resume_link" href="#">RESUME</a>
-                    <a class="nav-item nav-link" id="contact_link" href="#">CONTACT</a>
-                </div>
-                </div>
-            </nav>
-        
-        </div>
+    <header class="header" id="header">
+        <nav>
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" id="home_link" href="#">HOME</a>
+                <a class="nav-item nav-link" id="works_link" href="#">WORKS</a>
+                <a class="nav-item nav-link" id="games_link" href="#">GAMES</a>
+                <a class="nav-item nav-link" id="skills_link" href="#">SKILLS</a>
+                <a class="nav-item nav-link" id="contact_link" href="#">CONTACT</a>
+            </div>
+        </nav>
     </header>
-    
-    <div class="container-lg">
-        <div class="site__home" id="home">
-            <div class="home__header">
+
+    <section class="home" id="home">
+        <canvas id="home__canvas"></canvas>
+        <canvas id="home__overlay"></canvas>
+    </section>
+    <section class="page-container">
+        <div class="container-lg">
+            <section class="works section-container" id="works">
+                <div class="section-header">
+                    <h2>
+                        <span>M</span><span>y</span><span>&nbsp;</span><span>W</span><span>o</span><span>r</span><span>k</span><span>s</span>
+                    </h2>
+                </div>
                 <div class="row">
-                    <div class="col-sm-4 col-md-4 col-lg-4">
-                        <div class="photo">
-                            <img src="./image/photo.png" alt="photo">
+                    <div class="col-sm-6 col-12 work">
+                        <img src="./image/jr-dashboard-login.png" alt="photo-jr-dashboard">
+                        <div class="work__overlay">
+                            <div class='work__content'>
+                                <p>JR Dashboard</p>
+                                <a href='https://learn.jiangren.com.au' target="_blank"><i
+                                        class='fas fa-external-link-alt'></i></a>
+                                <a id="detail__jr-dashboard"><i class='fas fa-search'></i></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="title-container col-sm-8 col-md-8 col-lg-8">
-                        <div class="title-block">
-                            <h1>Yimeng Wang</h1>
-                            <p>Full Stack</p>
+                    <div class="col-sm-6 col-12 work">
+                        <img src="./image/broomer.png" alt="photo-broomer">
+                        <div class="work__overlay">
+                            <div class='work__content'>
+                                <p>Broomer</p>
+                                <a href='https://www.the-broomer.com' target="_blank"><i
+                                        class='fas fa-external-link-alt'></i></a>
+                                <a id="detail__broomer"><i class='fas fa-search'></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="home__content">
-                <div class="row">
-                    <!-- <div class="col-sm-6 col-md-6 col-lg-6"> -->
-                        <div class="about-me">
-                            <h2>About Me</h2>
-                            <p>Hello! I’m Skye. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum ullamcorper sem, at placerat dolor volutpat ac. Duis nulla enim, condimentum nec ultricies.</p>
+                    <div class="col-sm-6 col-12 work">
+                        <img src="./image/better3dlab.png" alt="photo-better3dlab">
+                        <div class="work__overlay">
+                            <div class='work__content'>
+                                <p>Better 3D Lab</p>
+                                <a href='https://www.better3dlab.com' target="_blank"><i
+                                        class='fas fa-external-link-alt'></i></a>
+                                <a id="detail__better3dlab"><i class='fas fa-search'></i></a>
+                            </div>
                         </div>
-                    <!-- </div> -->
-
-                </div>
-
-            </div>
-        </div>
-        <div class="site__resume" id="resume">
-            <div>
-                <div class="block">
-                    <h3 class="block-title">Skills</h3>
-                    <ul class="skills-info">
-                        <li>HTML</li>
-                        <li>JavaScript/ES6</li>
-                        <li>Node.js</li>
-                        <li>Git</li>
-                        <li>MySQL</li>
-                    </ul>
-
-                </div>
-                <div class="block">
-                    <h3 class="block-title">Project Experience</h3>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <h4 class="item-title">Frontend-developer</h4>
-                            <span class="item-period">Dec 2012 - Current</span>
-                            <span class="item-company">Web Agency</span>
-                            <p class="item-description">Mauris magna sapien, pharetra consectetur fringilla vitae, interdum sed tortor. Mauris magna sapien, pharetra consectetur fringilla vitae, interdum sed tortor.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <h4 class="item-title">Frontend-developer</h4>
-                            <span class="item-period">Dec 2012 - Current</span>
-                            <span class="item-company">Web Agency</span>
-                            <p class="item-description">Mauris magna sapien, pharetra consectetur fringilla vitae, interdum sed tortor.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <h4 class="item-title">Frontend-developer</h4>
-                            <span class="item-period">Dec 2012 - Current</span>
-                            <span class="item-company">Web Agency</span>
-                            <p class="item-description">Mauris magna sapien, pharetra consectetur fringilla vitae, interdum sed tortor. Mauris magna sapien, pharetra consectetur fringilla vitae, interdum sed tortor.</p>
+                    </div>
+                    <div class="col-sm-6 col-12 work">
+                        <img src="./image/jr.png" alt="photo-jr">
+                        <div class="work__overlay">
+                            <div class='work__content'>
+                                <p>Jiangren</p>
+                                <a href='https://jiangren.com.au' target="_blank"><i
+                                        class='fas fa-external-link-alt'></i></a>
+                                <a id="detail__jr"><i class='fas fa-search'></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="block">
-                    <h3 class="block-title">Education</h3>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <h4 class="item-title">Frontend-developer</h4>
-                            <span class="item-period">Dec 2012 - Current</span>
-                            <span class="item-company">Web Agency</span>
-                            <p class="item-description">Mauris magna sapien, pharetra consectetur fringilla vitae, interdum sed tortor. Mauris magna sapien, pharetra consectetur fringilla vitae, interdum sed tortor.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <h4 class="item-title">Frontend-developer</h4>
-                            <span class="item-period">Dec 2012 - Current</span>
-                            <span class="item-company">Web Agency</span>
-                            <p class="item-description">Mauris magna sapien, pharetra consectetur fringilla vitae, interdum sed tortor.</p>
-                        </div>
-                    </div>
-
+            </section>
+            <section class="games section-container" id="games">
+                <div class="section-header">
+                    <h2>
+                        <span>M</span><span>y</span><span>&nbsp;</span><span>G</span><span>a</span><span>m</span><span>e</span><span>s</span>
+                    </h2>
                 </div>
+                <div class="stage">
+                    <img src="/image/hero2.png" alt="image">
+                    <figure class="cube">
+                        <span id="back"><a href="https://swkyyme.github.io/puzzle" target="_blank">PUZZLE</a></span>
+                        <span id="left"><a href="https://swkyyme.github.io/MemGame" target="_blank">MeM</a></span>
+                        <span id="right"><a href="https://swkyyme.github.io/minesweeper"
+                                target="_blank">MINESWEEPER</a></span>
+                        <span id="front"><a href="https://swkyyme.github.io/saveMyLawn" target="_blank">SAVE MY
+                                LAWN</a></span>
+                    </figure>
+                </div>
+            </section>
+            <section class="skills section-container" id="skills">
+                <div class="section-header">
+                    <h2>
+                        <span>M</span><span>y</span><span>&nbsp;</span><span>S</span><span>k</span><span>i</span><span>l</span><span>l</span><span>s</span>
+                    </h2>
+                </div>
+                <div class="skills__content">
+                    <table class="table table-borderless skills__info">
+                        <tbody>
+                            <tr>
+                                <th>Front End:</th>
+                                <td>HTML5, CSS3, SASS/LESS, Bootstrap, Flexbox, JavaScript(ES6+), jQuery, Pug,
+                                    Responsive
+                                    Design, React.js, Redux.js, Redux-saga, Dva.js, Material-UI, Ant-design, Moment.js,
+                                    Angular, TypeScript, Vue</td>
+                            </tr>
+                            <tr>
+                                <th>Back End:</th>
+                                <td>Node.js, Express.js, KeystoneJS, JWT, Helmet, PHP, WordPress</td>
+                            </tr>
+                            <tr>
+                                <th>API:</th>
+                                <td>RESTful API, WebSocket API, Swagger, JSON, Ajax, axios</td>
+                            </tr>
+                            <tr>
+                                <th>Database:</th>
+                                <td>MySQL, MongoDB</td>
+                            </tr>
+                            <tr>
+                                <th>Tools:</th>
+                                <td>Visual Studio Code, Postman, Git, Github, BitBucket, JIRA, Trello, NPM, Webpack,
+                                    Babel,
+                                    ESLint</td>
+                            </tr>
+                            <tr>
+                                <th>Cloud Services:</th>
+                                <td>AWS S3, AWS Elastic Beanstalk, AWS Route 53, AWS CloudFront, Alibaba Cloud, Heroku
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Methodologies:</th>
+                                <td>Agile/Scrum</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section class="contact section-container" id="contact">
+                <div class="section-header">
+                    <h2>
+                        <span>C</span><span>o</span><span>n</span><span>t</span><span>a</span><span>c</span><span>t</span><span>&nbsp;</span><span>M</span><span>e</span>
+                    </h2>
+                </div>
+                <div class="contact__content">
+                    <div class="email">
+                        <img src="/image/email.png" alt="email icon">
+                        skye.wang.dev@gmail.com
+                    </div>
+                    <div class="linkedin">
+                        <img src="/image/L.png" alt="linkedin icon">
+                        https://www.linkedin.com/in/yimeng-wang-developer
+                    </div>
+                </div>
+            </section>
+        </div>
 
+        <div class="overlay" id="overlay__jr-dashboard">
+            <div class="popup">
+                <div class="close" id="close__jr-dashboard">&times;</div>
+                <div class="content row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <img src="./image/jr-course-enroll.png" alt="photo-jr-dashboard">
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <ul>
+                            <li>https://learn.jiangren.com.au</li>
+                            <li>Working as a full-stack developer in an Agile team, projects are managed using JIRA, Git
+                                and
+                                BitBucket are used for version control</li>
+                            <li>Developed the management platform for users with different authority, including a
+                                variety of
+                                online learning dashboard features for different roles (students, tutors, teachers),
+                                built
+                                the pages based on the UI design</li>
+                            <li>Tech and tools used: React.js, React router, Redux.js, Redux-saga, Umi, Dva.js,
+                                Ant-design,
+                                Less, Bootstrap, Flexbox</li>
+                            <li>API server: Re-designed/developed RESTful API on KeystoneJS platform, using Node.js,
+                                Express.js, MongoDB, Mongoose, Webpack, AWS S3, JWT, Cloudinary</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-
         </div>
-        <div class="site__contact" id="contact">
-            <div class="col-sm-6 col-md-6 col-lg-6">
-                <table class="info">
-                    <tbody>
-                        <tr>
-                            <td>Residence</td>
-                            <td>Australia</td>
-                        </tr>
-                        <tr>
-                            <td>Address</td>
-                            <td>Acacia Ridge, Brisbane</td>
-                        </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td>wym0529@hotmail.com</td>
-                        </tr>
-                        <tr>
-                            <td>Phone</td>
-                            <td>0450 123 456</td>
-                        </tr>
-                    </tbody>                
-                </table>
+        <div class="overlay" id="overlay__broomer">
+            <div class="popup">
+                <div class="close" id="close__broomer">&times;</div>
+                <div class="content row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <img src="./image/broomer-client.png" alt="photo-broomer-client-dashboard">
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <ul>
+                            <li>https://www.the-broomer.com</li>
+                            <li>Responsible for core feature (online orders) front-end and back-end development</li>
+                            <li>Constructed API server with express.js back-end node.js web application framework,
+                                implemented authentication using JWT, and hash password with Bcrypt</li>
+                            <li>Designed and implemented database using MongoDB</li>
+                            <li>Deployed on AWS cloud, automating the application delivery with CI/CD pipelines</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-    <footer>
-        <div class="copyrights">
-            @ 2019 All Right Reserved. Designed by Skye
+        <div class="overlay" id="overlay__better3dlab">
+            <div class="popup">
+                <div class="close" id="close__better3dlab">&times;</div>
+                <div class="content row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <img src="./image/better3dlab-store.png" alt="photo-better3dlab-store">
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <ul>
+                            <li>https://www.better3dlab.com</li>
+                            <li>Built website using WordPress, PHP, JavaScript, jQuery, HTML, CSS</li>
+                            <li>Implemented features such as bilingual website, products/services display, customer
+                                account,
+                                E-commerce, sending invoice with placing order, customer relationship management system
+                            </li>
+                            <li>Customized feature design</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
+        <div class="overlay" id="overlay__jr">
+            <div class="popup">
+                <div class="close" id="close__jr">&times;</div>
+                <div class="content row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <img src="./image/jr-uq.png" alt="photo-jr">
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <ul>
+                            <li>https://jiangren.com.au</li>
+                            <li>Working as a full-stack developer in an Agile team, projects are managed using JIRA, Git
+                                and
+                                BitBucket are used for version control</li>
+                            <li>Developed features and implemented responsive design for the official website, pages
+                                were
+                                built based on the UI design using Sass, HTML template engine Pug was used</li>
+                            <li>API server: Re-designed/developed RESTful API on KeystoneJS platform, using Node.js,
+                                Express.js, MongoDB, Mongoose, Webpack, AWS S3, JWT, Cloudinary</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <footer>
+            <div class="copyrights">
+                @ 2020 All Right Reserved. Designed by Skye
+            </div>
+        </footer>
+    </section>
 
-    
 </body>
+
 </html>
