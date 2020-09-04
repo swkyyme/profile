@@ -9,6 +9,9 @@ let height;
 const setSize = () => {
 	width = parseInt(homeStyle.getPropertyValue("width"), 10);
 	height = parseInt(homeStyle.getPropertyValue("height"), 10);
+
+	canvas.width = width;
+	canvas.height = height;
 };
 
 setSize();
@@ -17,10 +20,8 @@ window.addEventListener("resize", () => {
 	setSize();
 });
 
-canvas.width = width;
-canvas.height = height;
-
-const breadkpoint = 768;
+const breakpoint = 768;
+const breakpointSmall = 576;
 
 /************* image ******************/
 let bgReady = false;
@@ -148,7 +149,9 @@ const update = (modifier) => {
 const render = () => {
 	if (bgReady) {
 		ctx.drawImage(bgImage, 0, 0, width, height);
-		if (width < breadkpoint) {
+		if (width <= breakpointSmall) {
+			ctx.font = "350 45px cursive";
+		} else if (width < breakpoint) {
 			ctx.font = "500 60px cursive";
 		} else {
 			ctx.font = "900 80px cursive";
@@ -160,7 +163,15 @@ const render = () => {
 
 	if (wymReady) {
 		ctx.globalAlpha = 0.8;
-		if (width < breadkpoint) {
+		if (width <= breakpointSmall) {
+			ctx.drawImage(
+				wymImage,
+				width * 0.1,
+				height / 2 - 150,
+				width * 0.8,
+				(width * 0.8 * wymImage.height) / wymImage.width
+			);
+		} else if (width < breakpoint) {
 			ctx.drawImage(
 				wymImage,
 				width / 2 - 200,
@@ -179,7 +190,7 @@ const render = () => {
 		}
 	}
 
-	if (width >= breadkpoint && playerReady) {
+	if (width >= breakpoint && playerReady) {
 		ctx.drawImage(
 			playerImage,
 			player.x,
@@ -189,11 +200,11 @@ const render = () => {
 		);
 	}
 
-	if (width >= breadkpoint && inkReady) {
+	if (width >= breakpoint && inkReady) {
 		ctx.drawImage(inkImage, ink.x, ink.y, 70, 70);
 	}
 
-	if (width >= breadkpoint && keyboardReady) {
+	if (width >= breakpoint && keyboardReady) {
 		ctx.drawImage(keyboardImage, 50, height - 150, 100, 100);
 	}
 
@@ -215,7 +226,7 @@ const render = () => {
 		});
 	}
 
-	if (width >= breadkpoint) {
+	if (width >= breakpoint) {
 		ctx.fillStyle = "rgb(9, 9, 9)";
 		ctx.font = "24px cursive";
 		ctx.textAlign = "left";
