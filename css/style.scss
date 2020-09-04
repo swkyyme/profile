@@ -158,6 +158,9 @@ body {
 			transform-origin: 150px 150px;
 			position: absolute;
 			animation: rotate 20s infinite linear;
+			&:hover {
+				animation-play-state: paused;
+			}
 			span {
 				display: block;
 				font-size: 20px;
@@ -276,9 +279,14 @@ body {
 				font-size: 16px;
 			}
 		}
-		.linkedin img {
-			padding-left: 5px;
-			padding-right: 30px;
+		.linkedin {
+			img {
+				padding-left: 5px;
+				padding-right: 30px;
+			}
+			a {
+				color: $font-color;
+			}
 		}
 	}
 }

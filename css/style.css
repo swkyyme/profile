@@ -147,6 +147,9 @@ body {
   position: absolute;
   animation: rotate 20s infinite linear;
 }
+.games .stage .cube:hover {
+  animation-play-state: paused;
+}
 .games .stage .cube span {
   display: block;
   font-size: 20px;
@@ -273,6 +276,9 @@ body {
 .contact__content .linkedin img {
   padding-left: 5px;
   padding-right: 30px;
+}
+.contact__content .linkedin a {
+  color: #232323;
 }
 
 .overlay {
